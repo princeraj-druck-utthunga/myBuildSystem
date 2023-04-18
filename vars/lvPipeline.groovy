@@ -44,7 +44,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		stage('Build project') {
 			try {
 				timeout(time: 60, unit: 'MINUTES') {
-				lvBuild(lvProjectPath, "BHMSIggkf88j2OM", lvBuildSpecName, lvVersion, lvBitness)
+				lvBuild(lvProjectPath, "My Computer", lvBuildSpecName, lvVersion, lvBitness)
 				}
 				} catch (err) {
 					currentBuild.result = "SUCCESS"
