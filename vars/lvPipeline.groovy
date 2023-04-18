@@ -15,7 +15,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		  echo 'Starting Build...'
 		
 		agent{
-			'LabVIEWTestPC1'
+			lebel 'LabVIEWTestPC1'
 		}
 		
 
