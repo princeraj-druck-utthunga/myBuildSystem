@@ -11,12 +11,15 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		break
 	}
 
-	agent{
+	
+
+	//node {
+		  //echo 'Starting Build...'
+	pipeline{
+		agent{
 			lebel 'LabVIEW1'
 		}
-
-	node {
-		  echo 'Starting Build...'
+	
 		
 		stage ('Pre-Clean'){
 		preClean()
