@@ -1,4 +1,6 @@
 #!/usr/bin/env groovy
+
+agent{lebel 'LabVIEW1'}
 def PULL_REQUEST = env.CHANGE_ID
 
 //ENTER THE ABOVE INFORMATION
@@ -12,7 +14,6 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 	}
 
 	node { 
-		agent{lebel 'LabVIEW1'}
 		
 		stage ('Pre-Clean'){
 		preClean()
