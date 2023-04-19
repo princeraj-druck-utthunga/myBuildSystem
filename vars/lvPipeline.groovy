@@ -11,11 +11,14 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		break
 	}
 
-	
-    node {
-		   echo 'Starting Build...'
-			lebel 'LabVIEW1'
+	node {
+		  echo 'Starting Build...'
 		
+		agent{
+			'LabVIEWTestPC1'
+		}
+		
+
 		stage ('Pre-Clean'){
 		preClean()
 		}
@@ -84,7 +87,6 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 				}
 			}
 		}
-	}   
-	
+	}
 }
 
