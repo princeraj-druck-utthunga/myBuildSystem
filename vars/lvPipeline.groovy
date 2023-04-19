@@ -15,7 +15,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		  echo 'Starting Build...'
 		
 		agent{
-			'LabVIEWTestPC1'
+			lebel 'LabVIEW1'
 		}
 		
 
@@ -45,7 +45,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		stage('Build project') {
 			try {
 				timeout(time: 60, unit: 'MINUTES') {
-				lvBuild(lvProjectPath, "My Computer", lvBuildSpecName, lvVersion, lvBitness)
+				lvBuild(lvProjectPath, "LabVIEW1", lvBuildSpecName, lvVersion, lvBitness)
 				}
 				} catch (err) {
 					currentBuild.result = "SUCCESS"
