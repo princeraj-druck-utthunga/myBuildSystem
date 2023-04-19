@@ -12,13 +12,10 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 	}
 
 	node {
-		  echo 'Starting Build...'
-		
-		agent{
+		 agent{
 			lebel 'LabVIEW1'
 		}
-		
-
+		echo 'Starting Build...'
 		stage ('Pre-Clean'){
 		preClean()
 		}
@@ -45,7 +42,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		stage('Build project') {
 			try {
 				timeout(time: 60, unit: 'MINUTES') {
-				lvBuild(lvProjectPath, "LabVIEW1", lvBuildSpecName, lvVersion, lvBitness)
+				lvBuild(lvProjectPath, "My Computer", lvBuildSpecName, lvVersion, lvBitness)
 				}
 				} catch (err) {
 					currentBuild.result = "SUCCESS"
