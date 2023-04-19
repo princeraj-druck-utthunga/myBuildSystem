@@ -14,12 +14,13 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 	}
 
 	node { 
+		lebel 'LabVIEW1'
 		
 		stage ('Pre-Clean'){
 		preClean()
 		}
 
-		agent{lebel 'LabVIEW1'}
+		
 	  
 		stage('SCM Checkout') {
 			echo 'Attempting to get source from repo...'
