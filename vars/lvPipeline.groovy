@@ -12,9 +12,6 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 	}
 
 	node {
-		 agent{
-			lebel 'LabVIEW1'
-		}
 		
 		stage ('Pre-Clean'){
 		preClean()
@@ -42,7 +39,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		stage('Build project') {
 			try {
 				timeout(time: 60, unit: 'MINUTES') {
-				lvBuild(lvProjectPath, "LabView_station1", lvBuildSpecName, lvVersion, lvBitness)
+				lvBuild(lvProjectPath, "My Computer", lvBuildSpecName, lvVersion, lvBitness)
 				}
 				} catch (err) {
 					currentBuild.result = "SUCCESS"
