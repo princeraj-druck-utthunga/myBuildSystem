@@ -12,13 +12,12 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		lvVersion="2022"
 		break
 	}
-    //agent { label "LabVIEW1" }
+   
 	node {
 		agent {
-           node {
+          
             label 'LabVIEW1'
-            customWorkspace "$Workspace"
-             }
+            
 		}
 		
 		
