@@ -11,7 +11,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		break
 	}
 
-	node {
+	pipeline {
 		  echo 'Starting Build...'
 		
 		agent{
