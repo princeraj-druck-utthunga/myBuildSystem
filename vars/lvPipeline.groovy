@@ -11,9 +11,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		break
 	}
 
-	pipeline {
-		  echo 'Starting Build...'
-		
+	node {
 		agent{
 			lebel 'LabVIEW1'
 		}
