@@ -35,6 +35,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		}
 
 		stage ('Create Directories'){
+		  agent{lebel 'LabVIEW1'}
           bat 'mkdir TEMPDIR'
 		  bat 'mkdir DIFFDIR'
         }
@@ -42,7 +43,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		echo 'Building build spec...'
 		
 		stage('Build project') {
-			agent{lebel 'LabVIEW1'}
+			
 			try {
 				timeout(time: 60, unit: 'MINUTES') {
 				lvBuild(lvProjectPath, "My Computer", lvBuildSpecName, lvVersion, lvBitness)
