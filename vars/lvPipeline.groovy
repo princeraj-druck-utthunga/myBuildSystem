@@ -13,10 +13,8 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		break
 	}
    
-	node('LabVIEW1') {
+	node ('LabVIEW1') {
 		
-		
-
 		stage ('Pre-Clean'){
 		preClean()
 		}
