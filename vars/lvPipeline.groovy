@@ -1,5 +1,4 @@
 #!/usr/bin/env groovy
-
 def PULL_REQUEST = env.CHANGE_ID
 
 //ENTER THE ABOVE INFORMATION
@@ -12,12 +11,18 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		break
 	}
 
-	node{ echo 'Attempting to build...'
+	node {
+		  echo 'Starting Build...'
+		
+		agent{
+			'LabVIEWTestPC1'
+		}
+		
 
 		stage ('Pre-Clean'){
 		preClean()
 		}
-
+	  
 		stage('SCM Checkout') {
 			echo 'Attempting to get source from repo...'
 			timeout(time: 4, unit: 'MINUTES') {
@@ -31,7 +36,6 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		}
 
 		stage ('Create Directories'){
-		  
           bat 'mkdir TEMPDIR'
 		  bat 'mkdir DIFFDIR'
         }
@@ -39,7 +43,6 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		echo 'Building build spec...'
 		
 		stage('Build project') {
-			
 			try {
 				timeout(time: 60, unit: 'MINUTES') {
 				lvBuild(lvProjectPath, "My Computer", lvBuildSpecName, lvVersion, lvBitness)
