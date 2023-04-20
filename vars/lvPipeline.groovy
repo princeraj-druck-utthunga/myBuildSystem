@@ -13,12 +13,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		break
 	}
    
-	node {
-		agent {
-          
-            label 'LabVIEW1'
-            
-		}
+	node('LabVIEW1') {
 		
 		
 
