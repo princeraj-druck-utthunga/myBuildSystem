@@ -1,6 +1,5 @@
 #!/usr/bin/env groovy
 
-
 def PULL_REQUEST = env.CHANGE_ID
 
 //ENTER THE ABOVE INFORMATION
@@ -13,18 +12,12 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		break
 	}
 
-	node{ 
-		agent{
-			lebel 'LabVIEW1'
-			}
-		
-		
+	node{ echo 'Attempting to build...'
+
 		stage ('Pre-Clean'){
 		preClean()
 		}
 
-		
-	  
 		stage('SCM Checkout') {
 			echo 'Attempting to get source from repo...'
 			timeout(time: 4, unit: 'MINUTES') {
