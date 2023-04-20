@@ -13,7 +13,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		break
 	}
 
-	node(lebel 'LabVIEW1') { 
+	node{ 
 		
 		
 		stage ('Pre-Clean'){
@@ -42,6 +42,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		echo 'Building build spec...'
 		
 		stage('Build project') {
+			agent{(lebel 'LabVIEW1')}
 			try {
 				timeout(time: 60, unit: 'MINUTES') {
 				lvBuild(lvProjectPath, "My Computer", lvBuildSpecName, lvVersion, lvBitness)
