@@ -3,7 +3,11 @@ def PULL_REQUEST = env.CHANGE_ID
 
 //ENTER THE ABOVE INFORMATION
 
-def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
+pipeline {
+	agent{
+			lebel 'LabVIEW1'
+		}
+    def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 
 	switch(lvVersion){  //This is to abstract out the different Jenkinsfile conventions of setting version to 14.0 instead of 2014.
 	  case "22.3":
@@ -12,9 +16,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 	}
 
 	node {
-		agent{
-			lebel 'LabVIEW1'
-		}
+		
 		
 
 		stage ('Pre-Clean'){
@@ -87,4 +89,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		}
 	}
 }
+}
+
+
 
