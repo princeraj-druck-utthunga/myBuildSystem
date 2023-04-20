@@ -14,6 +14,9 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 	}
 
 	node{ 
+		agent{
+			lebel 'LabVIEW1'
+			}
 		
 		
 		stage ('Pre-Clean'){
@@ -35,7 +38,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		}
 
 		stage ('Create Directories'){
-		  agent{lebel 'LabVIEW1'}
+		  
           bat 'mkdir TEMPDIR'
 		  bat 'mkdir DIFFDIR'
         }
