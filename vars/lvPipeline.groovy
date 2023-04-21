@@ -9,7 +9,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 
 	switch(lvVersion){  //This is to abstract out the different Jenkinsfile conventions of setting version to 14.0 instead of 2014.
 	  case "22.3":
-		lvVersion="2022 Q3"
+		lvVersion="2022"
 		break
 	}
    
@@ -53,7 +53,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		
 		stage ('Unit Tests') {
 			try {
-				timeout(time: 60, unit: 'MINUTES') {
+				timeout(time: 180, unit: 'MINUTES') {
 					lvUtf(lvProjectPath, lvVersion, lvBitness)
 					echo 'Unit tests Succeeded!'
 				}
