@@ -23,7 +23,7 @@ def build_lv_project(project_path, target_name, build_spec_name, lv_version, lv_
     version_path = labview_path_from_year(lv_version, lv_bitness)
 
     command_args = [
-#         "LabVIEWCLI.exe",
+        "LabVIEWCLI.exe",
         "-LabVIEWPath", version_path,
         "-OperationName", "ExecuteBuildSpec",
         "-ProjectPath", project_path,
