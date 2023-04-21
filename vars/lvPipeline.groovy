@@ -53,7 +53,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		
 		stage ('Unit Tests') {
 			try {
-				timeout(time: 180, unit: 'MINUTES') {
+				timeout(time: 60, unit: 'MINUTES') {
 					lvUtf(lvProjectPath, lvVersion, lvBitness)
 					echo 'Unit tests Succeeded!'
 				}
